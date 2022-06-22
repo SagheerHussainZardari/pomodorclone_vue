@@ -8,12 +8,21 @@
     <!-- Header Start -->
     <div class="w-4/12 mx-auto py-4">
       <div class="flex justify-between">
-        <a href="/" class="flex items-center text-white">Pomofocuss</a>
+        <a href="/" class="flex items-center gap-1 text-white">
+          <img src="./assets/icon-white.png" class="w-8 h-8" alt="" srcset="" />
+          Pomofocuss</a
+        >
 
         <div
           @click="settingsShow = !settingsShow"
-          class="bg-white bg-opacity-30 text-sm text-gray-300 hover:text-white px-3 py-2 cursor-pointer rounded"
+          class="bg-white bg-opacity-30 flex items-center gap-1 text-sm text-gray-300 hover:text-white px-3 py-2 cursor-pointer rounded"
         >
+          <img
+            src="./assets/config-white.png"
+            class="w-4 h-4"
+            alt=""
+            srcset=""
+          />
           Setting
         </div>
       </div>
@@ -118,7 +127,12 @@
             class="flex justify-end text-gray-600 text-lg font-bold m-2 cursor-pointer"
             @click="settingsShow = !settingsShow"
           >
-            X
+            <img
+              src="./assets/remove-black-sm.png"
+              class="w-5 h-5 opacity-30"
+              alt=""
+              srcset=""
+            />
           </div>
         </div>
         <hr />
@@ -175,21 +189,59 @@
 
         <div class="p-4 flex justify-between items-center">
           <h1 class="text-black font-semibold">Auto start Breaks?</h1>
-          <input
-            type="checkbox"
-            v-model="settings.auto_start_breaks"
-            @change="autoStartBreaks($event)"
-          />
+
+          <label class="cursor-pointer">
+            <div class="relative">
+              <!-- input -->
+              <input
+                type="checkbox"
+                v-model="settings.auto_start_breaks"
+                id="toggleA"
+                @change="autoStartBreaks($event)"
+                class="sr-only"
+              />
+              <!-- line -->
+              <div
+                class="block w-14 h-8 rounded-full"
+                :class="
+                  settings.auto_start_breaks ? 'bg-[#84c733]' : 'bg-gray-300'
+                "
+              ></div>
+              <!-- dot -->
+              <div
+                class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"
+              ></div>
+            </div>
+          </label>
         </div>
         <hr />
 
         <div class="p-4 flex justify-between items-center">
           <h1 class="text-black font-semibold">Auto start Pomodoros?</h1>
-          <input
-            type="checkbox"
-            v-model="settings.auto_start_pomodoros"
-            @change="autoStartPomodoros($event)"
-          />
+          <!-- <input type="checkbox"  /> -->
+          <label class="cursor-pointer">
+            <div class="relative">
+              <!-- input -->
+              <input
+                type="checkbox"
+                v-model="settings.auto_start_pomodoros"
+                id="toggleB"
+                @change="autoStartPomodoros($event)"
+                class="sr-only"
+              />
+              <!-- line -->
+              <div
+                class="block w-14 h-8 rounded-full"
+                :class="
+                  settings.auto_start_pomodoros ? 'bg-[#84c733]' : 'bg-gray-300'
+                "
+              ></div>
+              <!-- dot -->
+              <div
+                class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"
+              ></div>
+            </div>
+          </label>
         </div>
       </div>
     </div>
@@ -237,6 +289,13 @@ export default {
       localStorage.getItem("auto_start_breaks") || false;
     this.settings.auto_start_pomodoros =
       localStorage.getItem("auto_start_pomodoros") || false;
+
+    this.settings.auto_start_breaks =
+      this.settings.auto_start_breaks === "true";
+
+    this.settings.auto_start_pomodoros =
+      this.settings.auto_start_pomodoros === "true";
+
     this.updateTime();
   },
 
@@ -366,4 +425,19 @@ export default {
 /* 'ArialRounded', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' */
+
+@font-face {
+  font-family: "ArialRounded";
+  src: local("ArialRounded"),
+    url(./assets/fonts/Arial_Rounded_MT.ttf) format("truetype");
+}
+
+* {
+  font-family: "ArialRounded" !important;
+}
+
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #ffffff;
+}
 </style>
