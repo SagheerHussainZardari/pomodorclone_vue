@@ -9,8 +9,8 @@
     <div class="w-4/12 mx-auto py-4">
       <div class="flex justify-between">
         <a href="/" class="flex items-center gap-1 text-white">
-          <img src="./assets/icon-white.png" class="w-8 h-8" alt="" srcset="" />
-          Pomofocuss</a
+          <img src="./assets/icon-white.png" class="w-5 h-5" alt="" srcset="" />
+          <span class="font-bold text-lg mt-1">Pomofocuss</span></a
         >
 
         <div
@@ -245,6 +245,145 @@
             </div>
           </label>
         </div>
+
+        <hr />
+
+        <div class="p-4 flex justify-between items-center">
+          <h1 class="text-[#555555] font-semibold">Alarm Sound</h1>
+
+          <div class="">
+            <div class="dropdown inline-block min-w-24 relative z-50">
+              <button
+                class="bg-[#efefef] text-gray-700 py-2 px-4 rounded inline-flex items-center"
+              >
+                <span class="mr-1">{{
+                  audio.alarm_audio == 1
+                    ? "Bell"
+                    : audio.alarm_audio == 2
+                    ? "Bird"
+                    : audio.alarm_audio == 3
+                    ? "Digital"
+                    : audio.alarm_audio == 4
+                    ? "Kitchen"
+                    : audio.alarm_audio == 5
+                    ? "Wood"
+                    : "None"
+                }}</span>
+                <svg
+                  class="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </button>
+              <ul
+                class="dropdown-menu border absolute hidden w-full rounded pb-2 text-gray-700 pt-1"
+              >
+                <li>
+                  <a
+                    class="rounded-t bg-white cursor-pointer hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+                    @click.prevent="audioSelectAlarm(0)"
+                    >None</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="rounded-t bg-white cursor-pointer hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+                    @click.prevent="audioSelectAlarm(1)"
+                    >Bell</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="rounded-t bg-white cursor-pointer hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+                    @click.prevent="audioSelectAlarm(2)"
+                    >Bird</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="rounded-t bg-white cursor-pointer hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+                    @click.prevent="audioSelectAlarm(3)"
+                    >Digital</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="rounded-t bg-white cursor-pointer hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+                    @click.prevent="audioSelectAlarm(4)"
+                    >Kitchen</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="rounded-t bg-white cursor-pointer hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+                    @click.prevent="audioSelectAlarm(5)"
+                    >Wood</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="p-4 flex justify-between items-center">
+          <h1 class="text-[#555555] font-semibold">Ticking Sound?</h1>
+
+          <div class="">
+            <div class="dropdown inline-block min-w-24 relative">
+              <button
+                class="bg-[#efefef] text-gray-700 py-2 px-4 rounded inline-flex items-center"
+              >
+                <span class="mr-1">{{
+                  audio.ticking_audio == 1
+                    ? "Ticking Slow"
+                    : audio.ticking_audio == 2
+                    ? "Ticking Fast"
+                    : "None"
+                }}</span>
+                <svg
+                  class="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </button>
+              <ul
+                class="dropdown-menu border absolute hidden w-full rounded pb-2 text-gray-700 pt-1"
+              >
+                <li>
+                  <a
+                    class="rounded-t bg-white cursor-pointer hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+                    @click.prevent="audioSelect(0)"
+                    >None</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="rounded-t bg-white cursor-pointer hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
+                    @click.prevent="audioSelect(1)"
+                    >Ticking Slow</a
+                  >
+                </li>
+                <li class="">
+                  <a
+                    class="bg-white hover:bg-gray-200 cursor-pointer py-2 px-4 block whitespace-no-wrap"
+                    @click.prevent="audioSelect(2)"
+                    >Ticking Fast</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Settings Section End -->
@@ -252,6 +391,14 @@
 </template>
 
 <script>
+import ticking_slow from "./assets/audio/ticking-slow.mp3";
+import ticking_fast from "./assets/audio/ticking-fast.mp3";
+import alarm_bell from "./assets/audio/alarm-bell.mp3";
+import alarm_bird from "./assets/audio/alarm-bird.mp3";
+import alarm_digital from "./assets/audio/alarm-digital.mp3";
+import alarm_kitchen from "./assets/audio/alarm-kitchen.mp3";
+import alarm_wood from "./assets/audio/alarm-wood.mp3";
+
 export default {
   components: {},
 
@@ -271,10 +418,24 @@ export default {
         auto_start_breaks: false,
         auto_start_pomodoros: false,
       },
+
+      audio: {
+        ticking_audio: 1,
+        alarm_audio: 1,
+        current_audio: null,
+        ticking_slow: ticking_slow,
+        ticking_fast: ticking_fast,
+        alarm_bell: alarm_bell,
+        alarm_bird: alarm_bird,
+        alarm_digital: alarm_digital,
+        alarm_kitchen: alarm_kitchen,
+        alarm_wood: alarm_wood,
+      },
     };
   },
 
   mounted() {
+    this.audio.current_audio = new Audio();
     this.time = localStorage.getItem("pomodoro_time_seconds") || 1500;
     this.settings.pomodoro_time = this.time / 60;
 
@@ -298,13 +459,16 @@ export default {
     this.settings.auto_start_pomodoros =
       this.settings.auto_start_pomodoros === "true";
 
+    this.audio.ticking_audio = localStorage.getItem("ticking_audio");
+    this.audio.alarm_audio = localStorage.getItem("alarm_audio");
+
     this.updateTime();
   },
 
   methods: {
     startTimer() {
       this.timmerRunning = true;
-
+      this.playTickingSound();
       this.interval = setInterval(() => {
         this.updateTime();
       }, 1000);
@@ -312,11 +476,17 @@ export default {
     stopTimer() {
       clearInterval(this.interval);
       this.timmerRunning = false;
+      this.audio.current_audio.pause();
     },
     updateTime() {
       if (this.time < 0) {
         clearInterval(this.interval);
         this.timmerRunning = false;
+        this.audio.current_audio.pause();
+        this.audio.current_audio.src = this.audio.alarm_bell;
+        this.audio.current_audio.load();
+        this.audio.current_audio.loop = false;
+        this.audio.current_audio.play();
 
         if (this.tab == 1) {
           this.tab = 2;
@@ -359,6 +529,7 @@ export default {
         if (confirm("Timer is still running do you want to continue")) {
           clearInterval(this.interval);
           this.timmerRunning = false;
+          this.audio.current_audio.pause();
 
           this.tab = tab;
           this.timeValuesUpdate();
@@ -419,6 +590,72 @@ export default {
         this.settings.auto_start_pomodoros
       );
     },
+
+    playTickingSound() {
+      if (this.audio.ticking_audio == 1 || this.audio.ticking_audio == 2) {
+        this.audio.current_audio.src =
+          this.audio.ticking_audio == 1
+            ? this.audio.ticking_slow
+            : this.audio.ticking_fast;
+
+        this.audio.current_audio.load();
+        this.audio.current_audio.loop = true;
+        this.audio.current_audio.play();
+      }
+    },
+
+    audioSelect(option) {
+      localStorage.setItem("ticking_audio", option);
+      this.audio.ticking_audio = option;
+
+      if (option == 1 || option == 2) {
+        this.audio.current_audio.src =
+          this.audio.ticking_audio == 1
+            ? this.audio.ticking_slow
+            : this.audio.ticking_fast;
+
+        this.audio.current_audio.load();
+
+        this.audio.current_audio.play();
+
+        setTimeout(() => {
+          this.audio.current_audio.pause();
+        }, 2000);
+      }
+    },
+
+    audioSelectAlarm(option) {
+      localStorage.setItem("alarm_audio", option);
+      this.audio.alarm_audio = option;
+
+      if (
+        option == 1 ||
+        option == 2 ||
+        option == 3 ||
+        option == 4 ||
+        option == 5
+      ) {
+        this.audio.current_audio.src =
+          this.audio.alarm_audio == 1
+            ? this.audio.alarm_bell
+            : this.audio.alarm_audio == 2
+            ? this.audio.alarm_bird
+            : this.audio.alarm_audio == 3
+            ? this.audio.alarm_digital
+            : this.audio.alarm_audio == 4
+            ? this.audio.alarm_kitchen
+            : this.audio.alarm_audio == 5
+            ? this.audio.alarm_wood
+            : "None";
+        this.audio.current_audio.load();
+
+        this.audio.current_audio.play();
+
+        setTimeout(() => {
+          this.audio.current_audio.pause();
+        }, 2000);
+      }
+    },
   },
 };
 </script>
@@ -441,5 +678,9 @@ export default {
 input:checked ~ .dot {
   transform: translateX(100%);
   background-color: #ffffff;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 </style>
