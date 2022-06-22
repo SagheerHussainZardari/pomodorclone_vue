@@ -8,7 +8,7 @@
     <!-- Header Start -->
     <div class="w-4/12 mx-auto py-4">
       <div class="flex justify-between">
-        <a href="/" class="flex items-center text-white">Pomofocus</a>
+        <a href="/" class="flex items-center text-white">Pomofocuss</a>
 
         <div
           @click="settingsShow = !settingsShow"
