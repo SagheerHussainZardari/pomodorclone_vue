@@ -85,7 +85,7 @@
             "
             @click="startTimer()"
           >
-            Start
+            START
           </h1>
           <div class="bg-gray-200 border-4 w-full"></div>
         </button>
@@ -101,7 +101,7 @@
             "
             @click="stopTimer()"
           >
-            Stop
+            STOP
           </h1>
           <div class="bg-gray-200 border-4 w-full"></div>
         </button>
@@ -119,7 +119,7 @@
       >
         <div class="flex justify-between">
           <div
-            class="flex justify-end text-gray-600 text-lg font-bold m-2 cursor-pointer"
+            class="flex justify-end text-[#bbbbbb] text-lg font-bold m-2 cursor-pointer"
           >
             TIMER SETTING
           </div>
@@ -138,7 +138,7 @@
         <hr />
 
         <div class="p-4">
-          <h1 class="text-black font-semibold">Time (minutes)</h1>
+          <h1 class="text-[#555555] font-semibold">Time (minutes)</h1>
           <div class="grid grid-cols-3 gap-6">
             <div>
               <label for="" class="text-gray-400 font-semibold text-sm"
@@ -148,7 +148,7 @@
                 type="number"
                 maxlength="5"
                 @change="pomodoroTimeChanged($event)"
-                class="flex w-full bg-gray-200 outline-none ring-0 border-0 rounded p-2"
+                class="flex w-full bg-[#efefef] outline-none ring-0 border-0 rounded p-2"
                 min="0"
                 :value="settings.pomodoro_time"
                 minlength="0"
@@ -162,7 +162,7 @@
                 type="number"
                 maxlength="5"
                 @change="shortBreakTimeChanged($event)"
-                class="flex w-full bg-gray-200 outline-none ring-0 border-0 rounded p-2"
+                class="flex w-full bg-[#efefef] outline-none ring-0 border-0 rounded p-2"
                 min="0"
                 :value="settings.short_break_time"
                 minlength="0"
@@ -177,7 +177,7 @@
                 maxlength="5"
                 @change="longBreakTimeChanged($event)"
                 :value="settings.long_break_time"
-                class="flex w-full bg-gray-200 outline-none ring-0 border-0 rounded p-2"
+                class="flex w-full bg-[#efefef] outline-none ring-0 border-0 rounded p-2"
                 min="0"
                 minlength="0"
               />
@@ -188,7 +188,7 @@
         <hr />
 
         <div class="p-4 flex justify-between items-center">
-          <h1 class="text-black font-semibold">Auto start Breaks?</h1>
+          <h1 class="text-[#555555] font-semibold">Auto start Breaks?</h1>
 
           <label class="cursor-pointer">
             <div class="relative">
@@ -204,7 +204,7 @@
               <div
                 class="block w-14 h-8 rounded-full"
                 :class="
-                  settings.auto_start_breaks ? 'bg-[#84c733]' : 'bg-gray-300'
+                  settings.auto_start_breaks ? 'bg-[#84c733]' : 'bg-[#cccccc]'
                 "
               ></div>
               <!-- dot -->
@@ -217,7 +217,7 @@
         <hr />
 
         <div class="p-4 flex justify-between items-center">
-          <h1 class="text-black font-semibold">Auto start Pomodoros?</h1>
+          <h1 class="text-[#555555] font-semibold">Auto start Pomodoros?</h1>
           <!-- <input type="checkbox"  /> -->
           <label class="cursor-pointer">
             <div class="relative">
@@ -233,7 +233,9 @@
               <div
                 class="block w-14 h-8 rounded-full"
                 :class="
-                  settings.auto_start_pomodoros ? 'bg-[#84c733]' : 'bg-gray-300'
+                  settings.auto_start_pomodoros
+                    ? 'bg-[#84c733]'
+                    : 'bg-[#cccccc]'
                 "
               ></div>
               <!-- dot -->
