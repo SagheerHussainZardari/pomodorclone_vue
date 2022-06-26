@@ -6,7 +6,7 @@
     "
   >
     <!-- Header Start -->
-    <div class="w-4/12 mx-auto py-4">
+    <div class="lg:w-4/12 w-11/12 mx-auto py-4">
       <div class="flex justify-between">
         <a href="/" class="flex items-center gap-1 text-white">
           <img src="./assets/icon-white.png" class="w-5 h-5" alt="" srcset="" />
@@ -31,10 +31,13 @@
     <!-- Header End -->
 
     <!-- Timer Box Start -->
-    <div class="bg-white bg-opacity-10 rounded-md p-6 w-3/12 mx-auto mt-6">
-      <div class="flex justify-center gap-2 w-10/12 mx-auto">
+    <div
+      class="bg-white bg-opacity-10 rounded-md lg:px-6 px-2 py-6 lg:w-3/12 w-11/12 mx-auto mt-6"
+    >
+      <div class="flex justify-center lg:gap-2 gap-1 lg:w-10/12 w-full mx-auto">
         <div
           @click="switchTab(1)"
+          class="lg:text-md text-sm word-wrap"
           :class="
             tab == 1
               ? 'text-white font-bold bg-gray-900 px-3 py-1 cursor-pointer rounded-md bg-opacity-10'
@@ -45,6 +48,7 @@
         </div>
         <div
           @click="switchTab(2)"
+          class="lg:text-md text-sm word-wrap"
           :class="
             tab == 2
               ? 'text-white font-bold bg-gray-900 px-3 py-1 cursor-pointer rounded-md bg-opacity-10'
@@ -55,6 +59,7 @@
         </div>
         <div
           @click="switchTab(3)"
+          class="lg:text-md text-sm word-wrap"
           :class="
             tab == 3
               ? 'text-white font-bold bg-gray-900 px-3 py-1 cursor-pointer rounded-md bg-opacity-10'
@@ -65,7 +70,9 @@
         </div>
       </div>
 
-      <div class="mt-4 text-white text-[120px] text-center font-bold">
+      <div
+        class="mt-4 text-white lg:text-[120px] text-[100px] text-center font-bold"
+      >
         {{ timeShow }}
       </div>
 
@@ -112,10 +119,10 @@
     <!-- Settings Section Start -->
     <div
       v-if="settingsShow"
-      class="bg-gray-900 flex justify-center bg-opacity-40 p-8 fixed top-0 w-screen min-h-screen"
+      class="bg-gray-900 flex justify-center bg-opacity-40 lg:p-8 p-2 fixed top-0 w-screen min-h-screen"
     >
       <div
-        class="w-3/12 m-4 px-4 bg-white rounded-lg break-words p-4 h-auto inline-block"
+        class="lg:w-[20%] lg:m-4 m-1 lg:text-md text-xs lg:px-4 py-4 px-1 bg-white rounded-lg break-words lg:p-4 h-auto inline-block"
       >
         <div class="flex justify-between">
           <div
@@ -139,9 +146,9 @@
 
         <div class="p-4">
           <h1 class="text-[#555555] font-semibold">Time (minutes)</h1>
-          <div class="grid grid-cols-3 gap-6">
+          <div class="grid grid-cols-3 gap-3">
             <div>
-              <label for="" class="text-gray-400 font-semibold text-sm"
+              <label for="" class="text-gray-400 font-semibold text-xs"
                 >Pomodoro</label
               >
               <input
@@ -155,7 +162,7 @@
               />
             </div>
             <div>
-              <label for="" class="text-gray-400 font-semibold text-sm"
+              <label for="" class="text-gray-400 font-semibold text-xs"
                 >Short Break</label
               >
               <input
@@ -169,7 +176,7 @@
               />
             </div>
             <div>
-              <label for="" class="text-gray-400 font-semibold text-sm"
+              <label for="" class="text-gray-400 font-semibold text-xs"
                 >Long Break</label
               >
               <input
@@ -328,6 +335,9 @@
             </div>
           </div>
         </div>
+        <div id="player">
+          <div id="volume"></div>
+        </div>
 
         <hr />
 
@@ -404,7 +414,7 @@ export default {
 
   data() {
     return {
-      settingsShow: true,
+      settingsShow: false,
       tab: 1,
       time: 300,
       timeShow: "00:00",
@@ -435,6 +445,8 @@ export default {
   },
 
   mounted() {
+    document.title = this.timeShow + " - Time to focus";
+
     this.audio.current_audio = new Audio();
     this.time = localStorage.getItem("pomodoro_time_seconds") || 1500;
     this.settings.pomodoro_time = this.time / 60;
@@ -471,6 +483,7 @@ export default {
       this.playTickingSound();
       this.interval = setInterval(() => {
         this.updateTime();
+        document.title = this.timeShow + " - Time to focus";
       }, 1000);
     },
     stopTimer() {
