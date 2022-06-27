@@ -6,7 +6,7 @@
     "
   >
     <!-- Header Start -->
-    <div class="lg:w-4/12 w-11/12 mx-auto py-4">
+    <div class="lg:w-4/12 md:w-8/12 w-11/12 mx-auto py-4">
       <div class="flex justify-between">
         <a href="/" class="flex items-center gap-1 text-white">
           <img src="./assets/icon-white.png" class="w-5 h-5" alt="" srcset="" />
@@ -32,7 +32,7 @@
 
     <!-- Timer Box Start -->
     <div
-      class="bg-white bg-opacity-10 rounded-md lg:px-6 px-2 py-6 lg:w-3/12 w-11/12 mx-auto mt-6"
+      class="bg-white bg-opacity-10 rounded-md lg:px-6 px-2 py-6 lg:w-3/12 md:w-6/12 w-11/12 mx-auto mt-6"
     >
       <div class="flex justify-center lg:gap-2 gap-1 lg:w-10/12 w-full mx-auto">
         <div
