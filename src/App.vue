@@ -6,7 +6,7 @@
     "
   >
     <!-- Header Start -->
-    <div class="lg:w-4/12 md:w-8/12 w-11/12 mx-auto py-3">
+    <div class="md:w-[620px] w-11/12 mx-auto py-3">
       <div class="flex justify-between">
         <a href="/" class="flex items-center gap-1 text-white">
           <img src="./assets/icon-white.png" class="w-5 h-5" alt="" srcset="" />
@@ -41,7 +41,7 @@
 
     <!-- Timer Box Start -->
     <div
-      class="bg-white bg-opacity-10 rounded-md lg:px-6 px-2 py-6 lg:w-3/12 md:w-6/12 w-11/12 mx-auto mt-6"
+      class="bg-white bg-opacity-10 rounded-md lg:px-6 px-2 py-6 md:w-[480px] w-[461px] mx-auto mt-6"
     >
       <div class="flex justify-center lg:gap-2 gap-1 lg:w-10/12 w-full mx-auto">
         <div
@@ -128,10 +128,10 @@
   <!-- Settings Section Start -->
   <div
     v-if="settingsShow"
-    class="bg-gray-900 flex justify-center bg-opacity-40 lg:p-8 p-2 fixed top-0 w-screen min-h-screen"
+    class="bg-[#00000066] flex justify-center lg:px-8 py-20 p-2 fixed top-0 w-screen min-h-screen"
   >
     <div
-      class="lg:w-[20%] lg:m-4 m-1 lg:text-md text-xs lg:px-4 py-4 px-1 bg-white rounded-lg break-words lg:p-4 h-auto inline-block"
+      class="w-[400px] lg:m-4 m-4 lg:text-md text-xs lg:px-4 py-4 bg-white rounded-lg break-words lg:p-4 h-auto inline-block"
     >
       <div class="flex justify-between">
         <div
@@ -405,23 +405,23 @@
   </div>
   <!-- Settings Section End -->
 
-  <div class="lg:w-4/12 md:w-10/12 w-full p-2 mx-auto">
-    <div class="w-full py-4">
+  <div class="md:w-[620px] w-full p-2 mx-auto">
+    <div class="w-full pt-12">
       <h1
-        class="md:text-[34px] text-[24px] leading-10 text-[#541c1f] font-bold leading-0"
+        class="md:text-[34px] text-[34px] leading-10 text-[#541c1f] font-bold leading-0"
       >
         An online Pomodoro Timer to boost your productivity
       </h1>
       <!-- <image src="/images/heroimage2.png" class="heroimage__img"></image> -->
     </div>
 
-    <div class="mt-6">
+    <div class="mt-14">
       <h2
-        class="heading md:text-[24px] text-[20px] leading-10 text-[#541c1f] font-bold leading-0"
+        class="heading text-[24px] leading-10 text-[#541c1f] font-bold leading-0"
       >
         What is Pomofocus?
       </h2>
-      <p class="py-4 text-[#785e60]">
+      <p class="py-4 text-[#785e60] text-[18px]">
         Pomofocus is a customizable pomodoro timer that works on desktop &
         mobile browser. The aim of this app is to help you focus on any task you
         are working on, such as study, writing, or coding. This app is inspired
@@ -436,13 +436,13 @@
       </p>
     </div>
 
-    <div class="mt-6">
+    <div class="mt-8">
       <h2
-        class="heading md:text-[24px] text-[20px] leading-10 text-[#541c1f] font-bold leading-0"
+        class="heading text-[24px] leading-10 text-[#541c1f] font-bold leading-0"
       >
         What is Pomodoro Technique?
       </h2>
-      <p class="py-4 text-[#785e60]">
+      <p class="py-4 text-[#785e60] text-[18px]">
         The Pomodoro Technique is created by Francesco Cirillo for a more
         productive way to work and study. The technique uses a timer to break
         down work into intervals, traditionally 25 minutes in length, separated
@@ -458,41 +458,41 @@
       </p>
     </div>
 
-    <div class="mt-6">
+    <div class="mt-8">
       <h2
-        class="heading md:text-[24px] text-[20px] leading-10 text-[#541c1f] font-bold leading-0"
+        class="heading text-[24px] leading-10 text-[#541c1f] font-bold leading-0"
       >
         How to use the Pomodoro Timer?
       </h2>
       <ul class="py-2 pl-1">
-        <li class="text-[#785e60]">
+        <li class="text-[#785e60] text-[16px]">
           <span class="text-[#785e60] px-2">1.</span>
           <strong class="text-[#785e60] font-bold">Add tasks</strong> to work on
           today
         </li>
-        <li class="text-[#785e60]">
+        <li class="text-[#785e60] text-[16px] mt-3">
           <span class="text-[#785e60] px-2">2.</span>
           <strong class="text-[#785e60] font-bold"
             >Set estimate pomodoros</strong
           >
           (1 = 25min of work) for each tasks
         </li>
-        <li class="text-[#785e60]">
+        <li class="text-[#785e60] text-[16px] mt-3">
           <span class="text-[#785e60] px-2">3.</span>
           <strong class="text-[#785e60] font-bold">Select a task</strong> to
           work on
         </li>
-        <li class="text-[#785e60]">
+        <li class="text-[#785e60] text-[16px] mt-3">
           <span class="text-[#785e60] px-2">4.</span>
           <strong class="text-[#785e60] font-bold">Start timer</strong> and
           focus on the task for 25 minutes
         </li>
-        <li class="text-[#785e60]">
+        <li class="text-[#785e60] text-[16px] mt-3">
           <span class="text-[#785e60] px-2">5.</span>
           <strong class="text-[#785e60] font-bold">Take a break</strong> for 5
           minutes when the alarm ring
         </li>
-        <li class="text-[#785e60]">
+        <li class="text-[#785e60] text-[16px] mt-3">
           <span class="text-[#785e60] px-2">6.</span>
           <strong class="text-[#785e60] font-bold">Iterate</strong> 3-5 until
           you finish the tasks
@@ -507,19 +507,19 @@
         Features
       </h2>
       <ul class="list-disc py-4 pl-8">
-        <li class="text-[#785e60]">
+        <li class="text-[#785e60] text-[18px] mt-3">
           <strong class="text-[#785e60] font-bold">Responsive design</strong>
           that works with desktop and mobile
         </li>
-        <li class="text-[#785e60]">
+        <li class="text-[#785e60] text-[18px] mt-3">
           <strong class="text-[#785e60] font-bold">Color transition</strong> to
           switch moods between work time and rest time
         </li>
-        <li class="text-[#785e60]">
+        <li class="text-[#785e60] text-[18px] mt-3">
           <strong class="text-[#785e60] font-bold">Audio notification</strong>
           at the end of a timer period
         </li>
-        <li class="text-[#785e60]">
+        <li class="text-[#785e60] text-[18px] mt-3">
           <strong class="text-[#785e60] font-bold">Customizable timer</strong>
           intervals to suit your preference
         </li>
