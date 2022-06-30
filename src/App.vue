@@ -23,7 +23,7 @@
             alt=""
             srcset=""
           />
-          Setting
+          <span class="md:block hidden">Setting</span>
         </div>
       </div>
       <!-- <div class="border-[1px] border-opacity-20 border-gray-600 my-2"></div> -->
@@ -40,87 +40,91 @@
     <!-- Header End -->
 
     <!-- Timer Box Start -->
-    <div
-      class="bg-white bg-opacity-10 rounded-md lg:px-6 px-2 py-6 md:w-[480px] w-[461px] mx-auto mt-6"
-    >
-      <div class="flex justify-center lg:gap-2 gap-1 lg:w-10/12 w-full mx-auto">
-        <div
-          @click="switchTab(1)"
-          class="lg:text-md text-sm word-wrap"
-          :class="
-            tab == 1
-              ? 'text-white font-bold bg-gray-900 px-3 py-1 cursor-pointer rounded-md bg-opacity-10'
-              : 'text-white font-semibold px-3 py-1 rounded-md cursor-pointer bg-opacity-10'
-          "
-        >
-          Pomodoro
-        </div>
-        <div
-          @click="switchTab(2)"
-          class="lg:text-md text-sm word-wrap"
-          :class="
-            tab == 2
-              ? 'text-white font-bold bg-gray-900 px-3 py-1 cursor-pointer rounded-md bg-opacity-10'
-              : 'text-white font-semibold px-3 py-1 rounded-md cursor-pointer bg-opacity-10'
-          "
-        >
-          Short Break
-        </div>
-        <div
-          @click="switchTab(3)"
-          class="lg:text-md text-sm word-wrap"
-          :class="
-            tab == 3
-              ? 'text-white font-bold bg-gray-900 px-3 py-1 cursor-pointer rounded-md bg-opacity-10'
-              : 'text-white font-semibold px-3 py-1 rounded-md cursor-pointer bg-opacity-10'
-          "
-        >
-          Long Break
-        </div>
-      </div>
-
+    <div class="m-2">
       <div
-        class="mt-4 text-white lg:text-[120px] text-[100px] text-center font-bold"
+        class="bg-white bg-opacity-10 rounded-md lg:px-6 px-2 py-6 md:w-[480px] w-full mx-auto mt-6"
       >
-        {{ timeShow }}
-      </div>
-
-      <div class="text-center">
-        <button
-          v-if="!timmerRunning"
-          class="bg-white mx-auto mt-4 rounded-t-md pt-3"
+        <div
+          class="flex justify-center lg:gap-2 gap-1 lg:w-10/12 w-full mx-auto"
         >
-          <h1
-            class="font-bold px-16 pb-3 text-[22px] transition-all duration-500"
+          <div
+            @click="switchTab(1)"
+            class="lg:text-md text-sm word-wrap"
             :class="
               tab == 1
-                ? 'text-[#D95550]'
-                : tab == 2
-                ? 'text-[#4c9195]'
-                : 'text-[#457d9f]'
+                ? 'text-white font-bold bg-gray-900 lg:px-3 px-1 py-1 cursor-pointer rounded-md bg-opacity-10'
+                : 'text-white font-semibold px-3 py-1 rounded-md cursor-pointer bg-opacity-10'
             "
-            @click="startTimer()"
           >
-            START
-          </h1>
-          <div class="bg-gray-200 border-4 w-full"></div>
-        </button>
-        <button v-else class="bg-white mx-auto mt-4 rounded-t-md pt-3">
-          <h1
-            class="font-bold px-16 pb-3 text-[22px] transition-all duration-500"
+            Pomodoro
+          </div>
+          <div
+            @click="switchTab(2)"
+            class="lg:text-md text-sm word-wrap"
             :class="
-              tab == 1
-                ? 'text-[#D95550]'
-                : tab == 2
-                ? 'text-[#4c9195]'
-                : 'text-[#457d9f]'
+              tab == 2
+                ? 'text-white font-bold bg-gray-900 lg:px-3 px-1 py-1 cursor-pointer rounded-md bg-opacity-10'
+                : 'text-white font-semibold px-3 py-1 rounded-md cursor-pointer bg-opacity-10'
             "
-            @click="stopTimer()"
           >
-            STOP
-          </h1>
-          <div class="bg-gray-200 border-4 w-full"></div>
-        </button>
+            Short Break
+          </div>
+          <div
+            @click="switchTab(3)"
+            class="lg:text-md text-sm word-wrap"
+            :class="
+              tab == 3
+                ? 'text-white font-bold bg-gray-900 lg:px-3 px-1 py-1 cursor-pointer rounded-md bg-opacity-10'
+                : 'text-white font-semibold px-3 py-1 rounded-md cursor-pointer bg-opacity-10'
+            "
+          >
+            Long Break
+          </div>
+        </div>
+
+        <div
+          class="mt-4 text-white lg:text-[120px] text-[100px] text-center font-bold"
+        >
+          {{ timeShow }}
+        </div>
+
+        <div class="text-center">
+          <button
+            v-if="!timmerRunning"
+            class="bg-white mx-auto mt-4 rounded-t-md pt-3"
+          >
+            <h1
+              class="font-bold px-16 pb-3 text-[22px] transition-all duration-500"
+              :class="
+                tab == 1
+                  ? 'text-[#D95550]'
+                  : tab == 2
+                  ? 'text-[#4c9195]'
+                  : 'text-[#457d9f]'
+              "
+              @click="startTimer()"
+            >
+              START
+            </h1>
+            <div class="bg-gray-200 border-4 w-full"></div>
+          </button>
+          <button v-else class="bg-white mx-auto mt-4 rounded-t-md pt-3">
+            <h1
+              class="font-bold px-16 pb-3 text-[22px] transition-all duration-500"
+              :class="
+                tab == 1
+                  ? 'text-[#D95550]'
+                  : tab == 2
+                  ? 'text-[#4c9195]'
+                  : 'text-[#457d9f]'
+              "
+              @click="stopTimer()"
+            >
+              STOP
+            </h1>
+            <div class="bg-gray-200 border-4 w-full"></div>
+          </button>
+        </div>
       </div>
     </div>
     <!-- Timer Box End -->
@@ -131,7 +135,7 @@
     class="bg-[#00000066] flex justify-center lg:px-8 py-20 p-2 fixed top-0 w-screen min-h-screen"
   >
     <div
-      class="w-[400px] lg:m-4 m-4 lg:text-md text-xs lg:px-4 py-4 bg-white rounded-lg break-words lg:p-4 h-auto inline-block"
+      class="w-[400px] lg:m-4 m-4 lg:text-[16px] text-xs lg:px-4 py-4 bg-white rounded-lg break-words lg:p-4 h-auto inline-block"
     >
       <div class="flex justify-between">
         <div
@@ -154,10 +158,12 @@
       <hr />
 
       <div class="p-4">
-        <h1 class="text-[#555555] font-semibold">Time (minutes)</h1>
+        <h1 class="text-[#555555] font-semibold my-2">Time (minutes)</h1>
         <div class="grid grid-cols-3 gap-3">
           <div>
-            <label for="" class="text-gray-400 font-semibold text-xs"
+            <label
+              for=""
+              class="text-gray-400 font-semibold lg:text-[16px] text-xs"
               >Pomodoro</label
             >
             <input
@@ -171,7 +177,9 @@
             />
           </div>
           <div>
-            <label for="" class="text-gray-400 font-semibold text-xs"
+            <label
+              for=""
+              class="text-gray-400 font-semibold lg:text-[16px] text-xs"
               >Short Break</label
             >
             <input
@@ -185,7 +193,9 @@
             />
           </div>
           <div>
-            <label for="" class="text-gray-400 font-semibold text-xs"
+            <label
+              for=""
+              class="text-gray-400 font-semibold lg:text-[16px] text-xs"
               >Long Break</label
             >
             <input
@@ -405,149 +415,181 @@
   </div>
   <!-- Settings Section End -->
 
-  <div class="md:w-[620px] w-full p-2 mx-auto">
-    <div class="w-full pt-12">
-      <h1
-        class="md:text-[34px] text-[34px] leading-10 text-[#541c1f] font-bold leading-0"
-      >
-        An online Pomodoro Timer to boost your productivity
-      </h1>
-      <!-- <image src="/images/heroimage2.png" class="heroimage__img"></image> -->
-    </div>
-
-    <div class="mt-14">
-      <h2
-        class="heading text-[24px] leading-10 text-[#541c1f] font-bold leading-0"
-      >
-        What is Pomofocus?
-      </h2>
-      <p class="py-4 text-[#785e60] text-[18px]">
-        Pomofocus is a customizable pomodoro timer that works on desktop &
-        mobile browser. The aim of this app is to help you focus on any task you
-        are working on, such as study, writing, or coding. This app is inspired
-        by
-        <a
-          href="https://francescocirillo.com/pages/pomodoro-technique"
-          target="_blank"
-          rel="noopener"
-          >Pomodoro Technique</a
+  <div v-show="!simplePage">
+    <div class="md:w-[620px] w-full p-2 mx-auto">
+      <div class="w-full pt-12">
+        <h1
+          class="md:text-[34px] text-[24px] leading-10 text-[#541c1f] font-bold leading-0"
         >
-        which is a time management method developed by Francesco Cirillo.
-      </p>
-    </div>
+          An online Pomodoro Timer to boost your productivity
+        </h1>
+        <!-- <image src="/images/heroimage2.png" class="heroimage__img"></image> -->
+      </div>
 
-    <div class="mt-8">
-      <h2
-        class="heading text-[24px] leading-10 text-[#541c1f] font-bold leading-0"
-      >
-        What is Pomodoro Technique?
-      </h2>
-      <p class="py-4 text-[#785e60] text-[18px]">
-        The Pomodoro Technique is created by Francesco Cirillo for a more
-        productive way to work and study. The technique uses a timer to break
-        down work into intervals, traditionally 25 minutes in length, separated
-        by short breaks. Each interval is known as a pomodoro, from the Italian
-        word for 'tomato', after the tomato-shaped kitchen timer that Cirillo
-        used as a university student. -
-        <a
-          href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
-          target="_blank"
-          rel="noopener"
-          >Wikipedia</a
+      <div class="mt-14">
+        <h2
+          class="heading text-[24px] leading-10 text-[#541c1f] font-bold leading-0"
         >
-      </p>
-    </div>
-
-    <div class="mt-8">
-      <h2
-        class="heading text-[24px] leading-10 text-[#541c1f] font-bold leading-0"
-      >
-        How to use the Pomodoro Timer?
-      </h2>
-      <ul class="py-2 pl-1">
-        <li class="text-[#785e60] text-[16px]">
-          <span class="text-[#785e60] px-2">1.</span>
-          <strong class="text-[#785e60] font-bold">Add tasks</strong> to work on
-          today
-        </li>
-        <li class="text-[#785e60] text-[16px] mt-3">
-          <span class="text-[#785e60] px-2">2.</span>
-          <strong class="text-[#785e60] font-bold"
-            >Set estimate pomodoros</strong
+          What is Pomofocus?
+        </h2>
+        <p class="py-4 text-[#785e60] text-[18px]">
+          Pomofocus is a customizable pomodoro timer that works on desktop &
+          mobile browser. The aim of this app is to help you focus on any task
+          you are working on, such as study, writing, or coding. This app is
+          inspired by
+          <a
+            href="https://francescocirillo.com/pages/pomodoro-technique"
+            target="_blank"
+            rel="noopener"
+            >Pomodoro Technique</a
           >
-          (1 = 25min of work) for each tasks
-        </li>
-        <li class="text-[#785e60] text-[16px] mt-3">
-          <span class="text-[#785e60] px-2">3.</span>
-          <strong class="text-[#785e60] font-bold">Select a task</strong> to
-          work on
-        </li>
-        <li class="text-[#785e60] text-[16px] mt-3">
-          <span class="text-[#785e60] px-2">4.</span>
-          <strong class="text-[#785e60] font-bold">Start timer</strong> and
-          focus on the task for 25 minutes
-        </li>
-        <li class="text-[#785e60] text-[16px] mt-3">
-          <span class="text-[#785e60] px-2">5.</span>
-          <strong class="text-[#785e60] font-bold">Take a break</strong> for 5
-          minutes when the alarm ring
-        </li>
-        <li class="text-[#785e60] text-[16px] mt-3">
-          <span class="text-[#785e60] px-2">6.</span>
-          <strong class="text-[#785e60] font-bold">Iterate</strong> 3-5 until
-          you finish the tasks
-        </li>
-      </ul>
+          which is a time management method developed by Francesco Cirillo.
+        </p>
+      </div>
+
+      <div class="mt-8">
+        <h2
+          class="heading text-[24px] leading-10 text-[#541c1f] font-bold leading-0"
+        >
+          What is Pomodoro Technique?
+        </h2>
+        <p class="py-4 text-[#785e60] text-[18px]">
+          The Pomodoro Technique is created by Francesco Cirillo for a more
+          productive way to work and study. The technique uses a timer to break
+          down work into intervals, traditionally 25 minutes in length,
+          separated by short breaks. Each interval is known as a pomodoro, from
+          the Italian word for 'tomato', after the tomato-shaped kitchen timer
+          that Cirillo used as a university student. -
+          <a
+            href="https://en.wikipedia.org/wiki/Pomodoro_Technique"
+            target="_blank"
+            rel="noopener"
+            >Wikipedia</a
+          >
+        </p>
+      </div>
+
+      <div class="mt-8">
+        <h2
+          class="heading text-[24px] leading-10 text-[#541c1f] font-bold leading-0"
+        >
+          How to use the Pomodoro Timer?
+        </h2>
+        <ul class="py-2 pl-1">
+          <li class="text-[#785e60] text-[16px]">
+            <span class="text-[#785e60] px-2">1.</span>
+            <strong class="text-[#785e60] font-bold">Add tasks</strong> to work
+            on today
+          </li>
+          <li class="text-[#785e60] text-[16px] mt-3">
+            <span class="text-[#785e60] px-2">2.</span>
+            <strong class="text-[#785e60] font-bold"
+              >Set estimate pomodoros</strong
+            >
+            (1 = 25min of work) for each tasks
+          </li>
+          <li class="text-[#785e60] text-[16px] mt-3">
+            <span class="text-[#785e60] px-2">3.</span>
+            <strong class="text-[#785e60] font-bold">Select a task</strong> to
+            work on
+          </li>
+          <li class="text-[#785e60] text-[16px] mt-3">
+            <span class="text-[#785e60] px-2">4.</span>
+            <strong class="text-[#785e60] font-bold">Start timer</strong> and
+            focus on the task for 25 minutes
+          </li>
+          <li class="text-[#785e60] text-[16px] mt-3">
+            <span class="text-[#785e60] px-2">5.</span>
+            <strong class="text-[#785e60] font-bold">Take a break</strong> for 5
+            minutes when the alarm ring
+          </li>
+          <li class="text-[#785e60] text-[16px] mt-3">
+            <span class="text-[#785e60] px-2">6.</span>
+            <strong class="text-[#785e60] font-bold">Iterate</strong> 3-5 until
+            you finish the tasks
+          </li>
+        </ul>
+      </div>
+
+      <div class="mt-6">
+        <h2
+          class="heading md:text-[24px] text-[20px] leading-10 text-[#541c1f] font-bold leading-0"
+        >
+          Features
+        </h2>
+        <ul class="list-disc py-4 pl-8">
+          <li class="text-[#785e60] text-[18px] mt-3">
+            <strong class="text-[#785e60] font-bold">Responsive design</strong>
+            that works with desktop and mobile
+          </li>
+          <li class="text-[#785e60] text-[18px] mt-3">
+            <strong class="text-[#785e60] font-bold">Color transition</strong>
+            to switch moods between work time and rest time
+          </li>
+          <li class="text-[#785e60] text-[18px] mt-3">
+            <strong class="text-[#785e60] font-bold">Audio notification</strong>
+            at the end of a timer period
+          </li>
+          <li class="text-[#785e60] text-[18px] mt-3">
+            <strong class="text-[#785e60] font-bold">Customizable timer</strong>
+            intervals to suit your preference
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="mt-6">
-      <h2
-        class="heading md:text-[24px] text-[20px] leading-10 text-[#541c1f] font-bold leading-0"
+    <hr />
+
+    <div class="lg:w-4/12 md:w-10/12 mt-4 w-full text-center p-2 mx-auto">
+      <a
+        class="px-2 text-[14px] font-bold text-[#785e60] cursor-pointer"
+        href="/"
+        >HOME</a
       >
-        Features
-      </h2>
-      <ul class="list-disc py-4 pl-8">
-        <li class="text-[#785e60] text-[18px] mt-3">
-          <strong class="text-[#785e60] font-bold">Responsive design</strong>
-          that works with desktop and mobile
-        </li>
-        <li class="text-[#785e60] text-[18px] mt-3">
-          <strong class="text-[#785e60] font-bold">Color transition</strong> to
-          switch moods between work time and rest time
-        </li>
-        <li class="text-[#785e60] text-[18px] mt-3">
-          <strong class="text-[#785e60] font-bold">Audio notification</strong>
-          at the end of a timer period
-        </li>
-        <li class="text-[#785e60] text-[18px] mt-3">
-          <strong class="text-[#785e60] font-bold">Customizable timer</strong>
-          intervals to suit your preference
-        </li>
-      </ul>
+      <a
+        class="px-2 text-[14px] font-bold text-[#785e60] cursor-pointer"
+        href="/privacy"
+        >PRIVACY</a
+      >
+      <a
+        class="px-2 text-[14px] font-bold text-[#785e60] cursor-pointer"
+        href="mailto:pomofocus@gmail.com"
+        >CONTACT</a
+      >
+      <a
+        class="px-2 text-[14px] font-bold text-[#785e60] cursor-pointer"
+        href="/app"
+        >SIMPLE PAGE</a
+      >
     </div>
-  </div>
 
-  <hr />
+    <div class="flex justify-center items-center gap-4 mt-4 mb-6">
+      <img
+        src="./assets/facebook.png"
+        class="w-10 h-10 bg-gray-400 p-1 rounded-full"
+        alt=""
+      />
 
-  <div class="lg:w-4/12 md:w-10/12 w-full text-center p-2 mx-auto">
-    <a class="px-2 text-[14px] font-bold text-[#785e60] cursor-pointer" href="/"
-      >HOME</a
-    >
-    <a
-      class="px-2 text-[14px] font-bold text-[#785e60] cursor-pointer"
-      href="/privacy"
-      >PRIVACY</a
-    >
-    <a
-      class="px-2 text-[14px] font-bold text-[#785e60] cursor-pointer"
-      href="mailto:pomofocus@gmail.com"
-      >CONTACT</a
-    >
-    <a
-      class="px-2 text-[14px] font-bold text-[#785e60] cursor-pointer"
-      href="/app"
-      >SIMPLE PAGE</a
-    >
+      <img
+        src="./assets/twitter.png"
+        class="w-10 h-10 bg-gray-400 p-1 rounded-full"
+        alt=""
+      />
+
+      <img
+        src="./assets/stripe-climate-badge.png"
+        class="w-10 h-10 bg-gray-400 p-1 rounded-full"
+        alt=""
+      />
+    </div>
+
+    <div class="text-center my-4 text-[#785e60]">
+      Made by <span class="text-[#d95550] font-bold">Sagheer Hussain</span>
+    </div>
+
+    <div class="text-center my-4 text-[#785e60] text-xs">
+      ©Pomofocus 2022. All Rights Reserved.
+    </div>
   </div>
 </template>
 
@@ -565,6 +607,7 @@ export default {
 
   data() {
     return {
+      simplePage: false,
       settingsShow: false,
       tab: 1,
       time: 300,
@@ -594,6 +637,14 @@ export default {
       },
       progress: 0,
     };
+  },
+
+  created() {
+    // check if path container /app
+
+    if (window.location.pathname === "/app") {
+      this.simplePage = true;
+    }
   },
 
   mounted() {
