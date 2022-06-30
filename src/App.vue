@@ -135,7 +135,7 @@
     class="bg-[#00000066] flex justify-center lg:px-8 py-20 p-2 fixed top-0 w-screen min-h-screen"
   >
     <div
-      class="w-[400px] lg:m-4 m-4 lg:text-[16px] text-xs lg:px-4 py-4 bg-white rounded-lg break-words lg:p-4 h-auto inline-block"
+      class="w-[400px] lg:m-4 m-4 relative lg:text-[16px] text-xs lg:px-4 py-4 bg-white rounded-lg break-words lg:p-4 inline-block"
     >
       <div class="flex justify-between">
         <div
@@ -410,6 +410,15 @@
             </ul>
           </div>
         </div>
+      </div>
+      <div
+        class="absolute bottom-0 right-0 bg-gray-300 float-right w-full text-right p-4"
+      >
+        <span
+          @click="settingsShow = false"
+          class="bg-gray-800 cursor-pointer rounded py-2 px-6 text-white"
+          >Ok</span
+        >
       </div>
     </div>
   </div>
